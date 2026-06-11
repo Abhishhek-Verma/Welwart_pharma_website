@@ -113,103 +113,34 @@
 </header>
 
 <!-- ========================
-     HERO SECTION
+     HERO SECTION — Image Slider
      ======================== -->
 <section id="home">
-  <div id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-grid">
-        <div class="hero-text">
-          <div class="hero-badge" id="hero-badge">
-            <span class="dot"></span>
-            Est. 2021 &bull; Ghaziabad, India
-          </div>
-          <h1 class="hero-title" id="hero-title">
-            Advancing <span class="highlight">Healthcare</span><br />
-            Through Quality<br />
-            Pharmaceuticals
-          </h1>
-          <p class="hero-sub" id="hero-sub">
-            Delivering trusted medicines, nutritional supplements and healthcare solutions across India with scientific excellence and ethical practices.
-          </p>
-          <div class="hero-actions" id="hero-actions">
-            <a href="#products" class="btn btn-white">
-              <i class="fas fa-pills"></i> Explore Products
-            </a>
-            <a href="#contact" class="btn btn-outline">
-              <i class="fas fa-phone"></i> Contact Us
-            </a>
-          </div>
-          <div class="hero-stats" id="hero-stats">
-            <div class="hero-stat">
-              <div class="num">2021</div>
-              <div class="lbl">Established</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">15+</div>
-              <div class="lbl">Products</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">100+</div>
-              <div class="lbl">Partners</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">2</div>
-              <div class="lbl">States Active</div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-card-float" id="hero-float-card">
-            <div class="hero-icon-grid">
-              <div class="hero-icon-item">
-                <div class="icon">💊</div>
-                <div class="label">Medicines</div>
-              </div>
-              <div class="hero-icon-item">
-                <div class="icon">🧬</div>
-                <div class="label">Research</div>
-              </div>
-              <div class="hero-icon-item">
-                <div class="icon">🏥</div>
-                <div class="label">Healthcare</div>
-              </div>
-              <div class="hero-icon-item">
-                <div class="icon">🧪</div>
-                <div class="label">Testing</div>
-              </div>
-              <div class="hero-icon-item">
-                <div class="icon">🌿</div>
-                <div class="label">Nutra</div>
-              </div>
-              <div class="hero-icon-item">
-                <div class="icon">✅</div>
-                <div class="label">Quality</div>
-              </div>
-            </div>
-            <div class="hero-card-stat">
-              <div class="icon">🏆</div>
-              <div class="info">
-                <div class="n">GMP Compliant</div>
-                <div class="t">Manufacturing Standards</div>
-              </div>
-            </div>
-            <div class="hero-card-stat">
-              <div class="icon">🇮🇳</div>
-              <div class="info">
-                <div class="n">Pan India Reach</div>
-                <div class="t">Growing Distribution Network</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div id="hero-slider">
+    <!-- Slides -->
+    <div class="slide active">
+      <img src="assets/images/image_01.png" alt="Welwart Pharmaceuticals - Advancing Healthcare" />
     </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-arrow"><div class="scroll-dot"></div></div>
+    <div class="slide">
+      <img src="assets/images/image_02.png" alt="Welwart Pharmaceuticals - Quality Products" />
+    </div>
+    <div class="slide">
+      <img src="assets/images/image_03.png" alt="Welwart Pharmaceuticals - Trusted Partner" />
+    </div>
+
+    <!-- Controls -->
+    <button class="slider-prev" id="sliderPrev" aria-label="Previous slide">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="slider-next" id="sliderNext" aria-label="Next slide">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="sliderDots">
+      <span class="slider-dot active" data-index="0"></span>
+      <span class="slider-dot" data-index="1"></span>
+      <span class="slider-dot" data-index="2"></span>
     </div>
   </div>
 </section>

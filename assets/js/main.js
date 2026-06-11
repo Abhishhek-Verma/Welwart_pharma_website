@@ -100,107 +100,47 @@ function updateActiveNav() {
   });
 }
 
-/* === HERO CANVAS === */
-var canvas = document.getElementById('hero-canvas');
-var ctx = canvas ? canvas.getContext('2d') : null;
-var particles = [];
-var mouse = { x: null, y: null };
+/* === IMAGE SLIDER === */
+(function () {
+  var slides = document.querySelectorAll('#hero-slider .slide');
+  var dots = document.querySelectorAll('.slider-dot');
+  var prevBtn = document.getElementById('sliderPrev');
+  var nextBtn = document.getElementById('sliderNext');
+  var current = 0;
+  var total = slides.length;
+  var autoTimer;
 
-function resizeCanvas() {
-  if (!canvas) return;
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-
-function Particle() {
-  this.reset();
-}
-Particle.prototype.reset = function () {
-  this.x = Math.random() * (canvas ? canvas.width : 800);
-  this.y = Math.random() * (canvas ? canvas.height : 600);
-  this.size = Math.random() * 3 + 1;
-  this.speedX = (Math.random() - 0.5) * 0.8;
-  this.speedY = (Math.random() - 0.5) * 0.8;
-  this.opacity = Math.random() * 0.6 + 0.1;
-  this.color = Math.random() > 0.5 ? '#2563EB' : '#ffffff';
-};
-Particle.prototype.update = function () {
-  this.x += this.speedX;
-  this.y += this.speedY;
-  if (mouse.x) {
-    var dx = mouse.x - this.x, dy = mouse.y - this.y;
-    var dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 120) { this.x -= dx * 0.02; this.y -= dy * 0.02; }
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
   }
-  if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-};
-Particle.prototype.draw = function () {
-  ctx.save();
-  ctx.globalAlpha = this.opacity;
-  ctx.fillStyle = this.color;
-  ctx.beginPath();
-  ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.restore();
-};
 
-function initParticles() {
-  if (!canvas || !ctx) return;
-  resizeCanvas();
-  particles = [];
-  var count = Math.min(120, Math.floor(canvas.width * canvas.height / 8000));
-  for (var i = 0; i < count; i++) particles.push(new Particle());
-}
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
 
-function drawConnections() {
-  if (!ctx) return;
-  for (var i = 0; i < particles.length; i++) {
-    for (var j = i + 1; j < particles.length; j++) {
-      var dx = particles[i].x - particles[j].x;
-      var dy = particles[i].y - particles[j].y;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 100) {
-        ctx.save();
-        ctx.globalAlpha = (1 - dist / 100) * 0.15;
-        ctx.strokeStyle = '#2563EB';
-        ctx.lineWidth = 0.5;
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.stroke();
-        ctx.restore();
-      }
-    }
+  function startAuto() {
+    autoTimer = setInterval(next, 5000);
   }
-}
+  function resetAuto() {
+    clearInterval(autoTimer);
+    startAuto();
+  }
 
-function animateCanvas() {
-  if (!ctx || !canvas) return;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(function (p) { p.update(); p.draw(); });
-  drawConnections();
-  requestAnimationFrame(animateCanvas);
-}
+  if (prevBtn) prevBtn.addEventListener('click', function () { prev(); resetAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { next(); resetAuto(); });
 
-window.addEventListener('resize', function () { resizeCanvas(); initParticles(); });
-var heroEl = document.getElementById('hero');
-if (heroEl) {
-  heroEl.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; });
-  heroEl.addEventListener('mouseleave', function () { mouse.x = null; mouse.y = null; });
-}
-initParticles();
-animateCanvas();
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      goTo(parseInt(this.getAttribute('data-index'), 10));
+      resetAuto();
+    });
+  });
 
-/* === GSAP HERO ANIMATIONS === */
-function initHeroAnimations() {
-  if (typeof gsap === 'undefined') return;
-  gsap.fromTo('#hero-badge', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.2, ease: 'power3.out' });
-  gsap.fromTo('#hero-title', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, delay: 0.4, ease: 'power3.out' });
-  gsap.fromTo('#hero-sub', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, delay: 0.6, ease: 'power3.out' });
-  gsap.fromTo('#hero-actions', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, delay: 0.8, ease: 'power3.out' });
-  gsap.fromTo('#hero-stats', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, delay: 1.0, ease: 'power3.out' });
-  gsap.fromTo('#hero-float-card', { opacity: 0, x: 60, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, duration: 1.2, delay: 0.6, ease: 'power3.out' });
-}
+  startAuto();
+})();
 
 /* === SCROLL REVEAL === */
 function initScrollReveal() {
