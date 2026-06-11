@@ -82,25 +82,20 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);line-height:1.2;color:var(--te
 /* ============================
    NAVBAR
    ============================ */
-#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);transition:all var(--transition)}
-#navbar.transparent{background:transparent}
-#navbar.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(15,118,110,.12)}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);transition:all var(--transition);background:#fff;backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(15,118,110,.12)}
+#navbar.transparent{background:#fff}
+#navbar.scrolled{background:#fff;backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(15,118,110,.12)}
 .nav-container{max-width:1280px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .nav-logo{display:flex;align-items:center;gap:12px}
 .nav-logo img{height:48px;width:auto;object-fit:contain}
 .nav-logo-text{display:flex;flex-direction:column}
 .nav-logo-text .brand{font-family:var(--font-heading);font-weight:800;font-size:1.2rem;color:#EC1F24;letter-spacing:1px;line-height:1}
 .nav-logo-text .tagline{font-size:.65rem;color:#EC1F24;letter-spacing:.5px;line-height:1.2}
-#navbar.transparent .nav-logo-text .brand{color:#fff}
-#navbar.transparent .nav-logo-text .tagline{color:rgba(255,255,255,.7)}
 .nav-links{display:flex;align-items:center;gap:4px}
 .nav-links a{padding:8px 14px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text);transition:all var(--transition);position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:4px;left:14px;right:14px;height:2px;background:var(--secondary);border-radius:2px;transform:scaleX(0);transition:transform var(--transition)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
 .nav-links a:hover{color:var(--primary)}
-#navbar.transparent .nav-links a{color:rgba(255,255,255,.85)}
-#navbar.transparent .nav-links a:hover{color:#fff}
-#navbar.transparent .nav-links a::after{background:#fff}
 .nav-cta{display:flex;align-items:center;gap:12px}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:50px;font-weight:600;font-size:.875rem;transition:all var(--transition);cursor:pointer;font-family:var(--font)}
 .btn-primary{background:linear-gradient(135deg,var(--secondary),var(--primary));color:#fff;box-shadow:0 4px 16px rgba(15,118,110,.35)}
