@@ -1177,8 +1177,8 @@ footer{background:#0D2B2B;color:#fff;padding:64px 0 0}
 .footer-brand{display:flex;flex-direction:column;gap:20px}
 .footer-logo{display:flex;align-items:center;gap:12px}
 .footer-logo img{height:44px;object-fit:contain}
-.footer-logo-text .brand{font-family:var(--font-heading);font-weight:800;font-size:1.15rem;color:#fff;letter-spacing:1px}
-.footer-logo-text .tagline{font-size:.65rem;color:rgba(255,255,255,.5);letter-spacing:.5px}
+.footer-logo-text .brand{font-family:var(--font-heading);font-weight:800;font-size:1.15rem;color:#EC1F24;letter-spacing:1px}
+.footer-logo-text .tagline{font-size:.65rem;color:#EC1F24;letter-spacing:.5px}
 .footer-desc{font-size:.875rem;color:rgba(255,255,255,.5);line-height:1.7;max-width:280px}
 .footer-socials{display:flex;gap:10px}
 .social-link{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:all var(--transition);font-size:.9rem}
