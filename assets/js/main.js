@@ -293,9 +293,11 @@ function openLightbox(el) {
   if (!img) return;
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightbox-img');
+  var lbCap = document.getElementById('lightbox-caption');
   if (!lb || !lbImg) return;
   lbImg.src = img.src;
   lbImg.alt = img.alt;
+  if (lbCap) lbCap.textContent = img.alt || '';
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
