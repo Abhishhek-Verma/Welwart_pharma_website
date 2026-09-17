@@ -68,16 +68,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);line-height:1.2;color:var(--te
     border: 2px solid #0D9488;
 }
 
-/* ---- Loading Screen ---- */
-#loader{position:fixed;inset:0;background:var(--dark-grad);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .6s ease,visibility .6s ease}
-#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.loader-inner{text-align:center}
-.loader-logo{font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:3px;margin-bottom:24px}
-.loader-logo span{color:var(--accent)}
-.loader-bar{width:200px;height:3px;background:rgba(255,255,255,.2);border-radius:2px;overflow:hidden;margin:0 auto}
-.loader-bar-fill{height:100%;background:linear-gradient(90deg,var(--secondary),var(--accent));border-radius:2px;width:0;animation:loadBar 2s ease forwards}
-@keyframes loadBar{to{width:100%}}
-.loader-text{color:rgba(255,255,255,.5);font-size:.8rem;letter-spacing:2px;margin-top:16px;text-transform:uppercase}
 
 /* ============================
    NAVBAR

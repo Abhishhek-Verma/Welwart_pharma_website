@@ -1,17 +1,5 @@
 /* Welwart Pharmaceuticals - Main JavaScript */
 
-/* === LOADING SCREEN === */
-document.body.style.overflow = 'hidden';
-window.addEventListener('load', function () {
-  setTimeout(function () {
-    var loader = document.getElementById('loader');
-    if (loader) {
-      loader.classList.add('hidden');
-      document.body.style.overflow = '';
-      initHeroAnimations();
-    }
-  }, 2200);
-});
 
 /* === CUSTOM CURSOR === */
 const cursor = document.getElementById("cursor");
