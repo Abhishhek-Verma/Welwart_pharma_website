@@ -392,7 +392,7 @@ function handleFormSubmit(e) {
     _captcha: 'false'
   };
 
-  fetch('https://formsubmit.co/ajax/welwartpharma@gmail.com', {
+  fetch('https://formsubmit.co/ajax/welmartpharma@gmail.com', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -436,7 +436,7 @@ function handleFormSubmit(e) {
         errorBox.innerHTML =
           '<div style="font-weight:600;font-size:.85rem;color:#991B1B;display:flex;align-items:center;justify-content:center;gap:8px;padding:4px 0;">' +
           '<i class="fas fa-exclamation-circle" style="font-size:1rem;"></i> ' +
-          'Could not send message. Please reach us directly at <a href="mailto:welwartpharma@gmail.com" style="text-decoration:underline;margin-left:4px;color:#991B1B;font-weight:700;">welwartpharma@gmail.com</a>' +
+          'Could not send message. Please reach us directly at <a href="mailto:welmartpharma@gmail.com" style="text-decoration:underline;margin-left:4px;color:#991B1B;font-weight:700;">welmartpharma@gmail.com</a>' +
           '</div>';
         errorBox.style.display = 'block';
       }
