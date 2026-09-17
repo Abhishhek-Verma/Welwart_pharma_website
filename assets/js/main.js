@@ -344,25 +344,128 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeLightbox();
 });
 
-/* === CONTACT FORM === */
+/* === CONTACT FORM (HTTPS API - ZERO BACKEND / NO SMTP BLOCKED) === */
+function escapeHtml(text) {
+  var div = document.createElement('div');
+  div.textContent = text || '';
+  return div.innerHTML;
+}
+
 function handleFormSubmit(e) {
   e.preventDefault();
-  var btn = e.target.querySelector('[type=submit]');
-  var success = document.getElementById('formSuccess');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(function () {
-    if (success) success.style.display = 'block';
-    e.target.reset();
-    btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-    btn.style.background = 'linear-gradient(135deg,#10B981,#059669)';
-    setTimeout(function () {
-      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-      btn.style.background = '';
-      btn.disabled = false;
-      if (success) success.style.display = 'none';
-    }, 5000);
-  }, 1200);
+  var form = e.target;
+  var submitBtn = document.getElementById('submitBtn') || form.querySelector('[type=submit]');
+  var successBox = document.getElementById('formSuccess');
+  var errorBox = document.getElementById('formError');
+
+  var fname = (document.getElementById('fname') || {}).value || '';
+  var lname = (document.getElementById('lname') || {}).value || '';
+  var email = (document.getElementById('email') || {}).value || '';
+  var phone = (document.getElementById('phone') || {}).value || '';
+  var subject = (document.getElementById('subject') || {}).value || '';
+  var message = (document.getElementById('message') || {}).value || '';
+
+  var fullName = (fname + ' ' + lname).trim() || 'Valued Partner';
+
+  var originalBtnHtml = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Enquiry...';
+
+  if (successBox) {
+    successBox.style.display = 'none';
+    successBox.innerHTML = '';
+  }
+  if (errorBox) {
+    errorBox.style.display = 'none';
+    errorBox.innerHTML = '';
+  }
+
+  // Payload for FormSubmit API (Standard HTTPS Port 443 - never blocked on Render)
+  var payload = {
+    name: fullName,
+    email: email,
+    phone: phone,
+    subject: subject,
+    message: message,
+    _subject: 'New Website Enquiry: ' + subject + ' - ' + fullName,
+    _template: 'table',
+    _captcha: 'false'
+  };
+
+  fetch('https://formsubmit.co/ajax/info@welwartpharma.com', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+    .then(function (res) {
+      if (!res.ok) {
+        throw new Error('Server returned ' + res.status);
+      }
+      return res.json();
+    })
+    .then(function (data) {
+      submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Message Sent!';
+      submitBtn.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+
+      var waText = encodeURIComponent(
+        'Hello Welwart Team, I just submitted an enquiry on your website.\n\n' +
+        'Name: ' + fullName + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n' +
+        'Subject: ' + subject + '\n' +
+        'Message: ' + message
+      );
+
+      if (successBox) {
+        successBox.innerHTML =
+          '<div class="form-success-header">' +
+          '<i class="fas fa-check-circle"></i> Enquiry Sent to Welwart Team!' +
+          '</div>' +
+          '<p style="margin:0 0 6px;">Thank you <strong>' + escapeHtml(fullName) + '</strong>. Your message has been routed directly to our inbox (<strong>info@welwartpharma.com</strong>). We will get back to you shortly.</p>' +
+          '<div class="form-success-wa">' +
+          '<span style="font-size:.78rem;font-weight:600;color:#065F46;">Need instant quotation or dispatch info?</span>' +
+          '<a href="https://wa.me/919891707828?text=' + waText + '" target="_blank" rel="noopener">' +
+          '<i class="fab fa-whatsapp"></i> Also Send on WhatsApp' +
+          '</a>' +
+          '</div>';
+        successBox.style.display = 'block';
+      }
+
+      form.reset();
+
+      setTimeout(function () {
+        submitBtn.innerHTML = originalBtnHtml;
+        submitBtn.style.background = '';
+        submitBtn.disabled = false;
+      }, 7000);
+    })
+    .catch(function (err) {
+      console.warn('Direct HTTPS submit notice:', err);
+      submitBtn.innerHTML = originalBtnHtml;
+      submitBtn.disabled = false;
+
+      var mailtoUrl = 'mailto:info@welwartpharma.com?subject=' + encodeURIComponent('Enquiry: ' + subject) +
+        '&body=' + encodeURIComponent('Name: ' + fullName + '\nPhone: ' + phone + '\nEmail: ' + email + '\n\n' + message);
+      var waUrl = 'https://wa.me/919891707828?text=' + encodeURIComponent(
+        'Hello Welwart Team,\n\nName: ' + fullName + '\nPhone: ' + phone + '\nEmail: ' + email + '\nSubject: ' + subject + '\n\nMessage: ' + message
+      );
+
+      if (errorBox) {
+        errorBox.innerHTML =
+          '<div style="font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px;">' +
+          '<i class="fas fa-paper-plane"></i> Quick Direct Dispatch Channels:' +
+          '</div>' +
+          '<p style="margin:0 0 8px;">Network delivery was restricted by your browser. Please send directly via WhatsApp or your email client:</p>' +
+          '<div style="display:flex;gap:8px;flex-wrap:wrap;">' +
+          '<a href="' + waUrl + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;"><i class="fab fa-whatsapp"></i> Send via WhatsApp</a>' +
+          '<a href="' + mailtoUrl + '" style="display:inline-flex;align-items:center;gap:6px;background:#0F766E;color:#fff;padding:6px 14px;border-radius:20px;font-size:.78rem;font-weight:600;"><i class="fas fa-envelope"></i> Send via Email Client</a>' +
+          '</div>';
+        errorBox.style.display = 'block';
+      }
+    });
 }
 
 /* === SMOOTH SCROLL === */
