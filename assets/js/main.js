@@ -225,13 +225,39 @@ function initCounters() {
 initCounters();
 
 /* === PRODUCT TABS === */
+window.switchProductTab = function (tab) {
+  var targetBtn = document.querySelector('.tab-btn[data-tab="' + tab + '"]');
+  if (targetBtn) {
+    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+    targetBtn.classList.add('active');
+    document.querySelectorAll('.product-panel').forEach(function (p) { p.classList.remove('active'); });
+    var panel = document.getElementById('tab-' + tab);
+    if (panel) panel.classList.add('active');
+  }
+};
+
 document.querySelectorAll('.tab-btn').forEach(function (btn) {
   btn.addEventListener('click', function () {
-    document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    document.querySelectorAll('.product-panel').forEach(function (p) { p.classList.remove('active'); });
-    var panel = document.getElementById('tab-' + btn.getAttribute('data-tab'));
-    if (panel) panel.classList.add('active');
+    var tab = btn.getAttribute('data-tab');
+    if (tab) window.switchProductTab(tab);
+  });
+});
+
+/* === THERAPEUTIC SEGMENTS INTERACTION === */
+document.querySelectorAll('.segment-card[data-tab]').forEach(function (card) {
+  card.addEventListener('click', function () {
+    var tab = card.getAttribute('data-tab');
+    if (tab) {
+      var targetBtn = document.querySelector('.tab-btn[data-tab="' + tab + '"]');
+      if (targetBtn) {
+        targetBtn.click();
+      }
+      var productsSec = document.getElementById('products');
+      if (productsSec) {
+        var offset = productsSec.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    }
   });
 });
 
