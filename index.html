@@ -35,7 +35,7 @@
   <meta property="og:url" content="https://welwartpharma.com/" />
   <meta property="og:title" content="Welwart Pharmaceuticals Pvt. Ltd. | Official Website" />
   <meta property="og:description" content="Official website of Welwart Pharmaceuticals Pvt. Ltd. Delivering trusted generic medicines, nutritional supplements, and advanced healthcare solutions across India." />
-  <meta property="og:image" content="https://welwartpharma.com/assets/images/image_01.png" />
+  <meta property="og:image" content="https://welwartpharma.com/assets/images/image_01.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Welwart Pharmaceuticals - Advancing Healthcare" />
@@ -46,11 +46,11 @@
   <meta name="twitter:url" content="https://welwartpharma.com/" />
   <meta name="twitter:title" content="Welwart Pharmaceuticals Pvt. Ltd. | Official Website" />
   <meta name="twitter:description" content="Official website of Welwart Pharmaceuticals Pvt. Ltd. Discover our trusted range of generic medicines, nutritional supplements, and therapeutic formulations." />
-  <meta name="twitter:image" content="https://welwartpharma.com/assets/images/image_01.png" />
+  <meta name="twitter:image" content="https://welwartpharma.com/assets/images/image_01.webp" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/logo.png" />
-  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+  <link rel="icon" type="image/png" href="assets/images/logo.webp" />
+  <link rel="apple-touch-icon" href="assets/images/logo.webp" />
 
   <!-- Google Sitelinks & Knowledge Graph Schema (JSON-LD) -->
   <script type="application/ld+json">
@@ -70,10 +70,10 @@
         "url": "https://welwartpharma.com/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://welwartpharma.com/assets/images/logo.png",
+          "url": "https://welwartpharma.com/assets/images/logo.webp",
           "caption": "Welwart Pharmaceuticals Logo"
         },
-        "image": "https://welwartpharma.com/assets/images/image_01.png",
+        "image": "https://welwartpharma.com/assets/images/image_01.webp",
         "description": "Welwart Pharmaceuticals Pvt. Ltd. is an Indian pharmaceutical company founded in 2021, specializing in generic medicines, nutritional supplements, and therapeutic formulations.",
         "foundingDate": "2021",
         "priceRange": "$$",
@@ -162,6 +162,19 @@
   }
   </script>
 
+  <!-- Performance & Resource Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="dns-prefetch" href="https://maps.google.com" />
+  <link rel="dns-prefetch" href="https://formsubmit.co" />
+
+  <!-- Google Fonts (Non-render-blocking with display=swap) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;600;700;800&display=swap" />
+
+  <!-- Preload Critical LCP Hero Image -->
+  <link rel="preload" as="image" href="assets/images/image_01.webp" fetchpriority="high" type="image/webp" />
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <!-- Main CSS -->
@@ -192,7 +205,7 @@
 <header id="navbar" class="transparent">
   <div class="nav-container">
     <a href="#home" class="nav-logo">
-      <img src="assets/images/logo.png" alt="Welwart Pharmaceuticals Logo" />
+      <img src="assets/images/logo.webp" alt="Welwart Pharmaceuticals Logo" />
       <div class="nav-logo-text">
         <span class="brand">WELWART</span>
         <span class="tagline">Pharmaceuticals Pvt. Ltd.</span>
@@ -226,13 +239,13 @@
   <div id="hero-slider">
     <!-- Slides -->
     <div class="slide active">
-      <img src="assets/images/image_01.png" alt="Welwart Pharmaceuticals - Advancing Healthcare" />
+      <img src="assets/images/image_01.webp" alt="Welwart Pharmaceuticals - Advancing Healthcare" fetchpriority="high" decoding="async" />
     </div>
     <div class="slide">
-      <img src="assets/images/image_02.png" alt="Welwart Pharmaceuticals - Quality Products" />
+      <img src="assets/images/image_02.webp" alt="Welwart Pharmaceuticals - Quality Products" loading="lazy" decoding="async" />
     </div>
     <div class="slide">
-      <img src="assets/images/image_03.png" alt="Welwart Pharmaceuticals - Trusted Partner" />
+      <img src="assets/images/image_03.webp" alt="Welwart Pharmaceuticals - Trusted Partner" loading="lazy" decoding="async" />
     </div>
 
     <!-- Controls -->
@@ -260,7 +273,7 @@
     <div class="about-grid">
       <div class="reveal-left">
         <div class="about-img-wrap">
-          <img src="assets/images/about.png" alt="Welwart Pharmaceuticals Laboratory" loading="lazy" />
+          <img src="assets/images/about.webp" alt="Welwart Pharmaceuticals Laboratory" loading="lazy" />
         </div>
       </div>
       <div class="about-text reveal-right">
@@ -367,7 +380,7 @@
     <div class="product-panel active" id="tab-nutritional">
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/D3 Ultrarise.png" alt="Ultrarise-60K" loading="lazy" />
+          <img src="assets/images/D3 Ultrarise.webp" alt="Ultrarise-60K" loading="lazy" />
           <span class="product-category-tag">Nutritional</span>
         </div>
         <div class="product-body">
@@ -378,7 +391,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/ultrarise-nano.png" alt="Ultrarise Nano" loading="lazy" />
+          <img src="assets/images/ultrarise-nano.webp" alt="Ultrarise Nano" loading="lazy" />
           <span class="product-category-tag">Nutritional</span>
         </div>
         <div class="product-body">
@@ -389,7 +402,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/calwart-xt.png" alt="Calwart-XT" loading="lazy" />
+          <img src="assets/images/calwart-xt.webp" alt="Calwart-XT" loading="lazy" />
           <span class="product-category-tag">Nutritional</span>
         </div>
         <div class="product-body">
@@ -400,7 +413,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/Calcium Supplemen.png" alt="Calwart Calcium" loading="lazy" />
+          <img src="assets/images/Calcium Supplemen.webp" alt="Calwart Calcium" loading="lazy" />
           <span class="product-category-tag">Nutritional</span>
         </div>
         <div class="product-body">
@@ -411,7 +424,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/argiveer-lc.png" alt="Argiveer-LC" loading="lazy" />
+          <img src="assets/images/argiveer-lc.webp" alt="Argiveer-LC" loading="lazy" />
           <span class="product-category-tag">Nutritional</span>
         </div>
         <div class="product-body">
@@ -426,7 +439,7 @@
     <div class="product-panel" id="tab-ortho">
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/Cartibless.png" alt="Cartibless" loading="lazy" />
+          <img src="assets/images/Cartibless.webp" alt="Cartibless" loading="lazy" />
           <span class="product-category-tag">Orthopaedic</span>
         </div>
         <div class="product-body">
@@ -437,7 +450,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/osgum-forte.png" alt="Osgum Forte" loading="lazy" />
+          <img src="assets/images/osgum-forte.webp" alt="Osgum Forte" loading="lazy" />
           <span class="product-category-tag">Orthopaedic</span>
         </div>
         <div class="product-body">
@@ -448,7 +461,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/t-grow.png" alt="T-Grow" loading="lazy" />
+          <img src="assets/images/t-grow.webp" alt="T-Grow" loading="lazy" />
           <span class="product-category-tag">Orthopaedic</span>
         </div>
         <div class="product-body">
@@ -463,7 +476,7 @@
     <div class="product-panel" id="tab-pain">
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/WELFINAC-SP.png" alt="Welfinac-SP" loading="lazy" />
+          <img src="assets/images/WELFINAC-SP.webp" alt="Welfinac-SP" loading="lazy" />
           <span class="product-category-tag">Pain Mgmt</span>
         </div>
         <div class="product-body">
@@ -474,7 +487,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/welfinac-p.png" alt="Welfinac-P" loading="lazy" />
+          <img src="assets/images/welfinac-p.webp" alt="Welfinac-P" loading="lazy" />
           <span class="product-category-tag">Pain Mgmt</span>
         </div>
         <div class="product-body">
@@ -485,7 +498,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/Welfinac-MR.png" alt="Welfinac-MR" loading="lazy" />
+          <img src="assets/images/Welfinac-MR.webp" alt="Welfinac-MR" loading="lazy" />
           <span class="product-category-tag">Pain Mgmt</span>
         </div>
         <div class="product-body">
@@ -496,7 +509,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/welfinac-th.png" alt="Welfinac-TH" loading="lazy" />
+          <img src="assets/images/welfinac-th.webp" alt="Welfinac-TH" loading="lazy" />
           <span class="product-category-tag">Pain Mgmt</span>
         </div>
         <div class="product-body">
@@ -507,7 +520,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/tramanol.png" alt="Tramanol" loading="lazy" />
+          <img src="assets/images/tramanol.webp" alt="Tramanol" loading="lazy" />
           <span class="product-category-tag">Pain Mgmt</span>
         </div>
         <div class="product-body">
@@ -522,7 +535,7 @@
     <div class="product-panel" id="tab-gastro">
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/Esomust-DSR.png" alt="Esomust-DSR" loading="lazy" />
+          <img src="assets/images/Esomust-DSR.webp" alt="Esomust-DSR" loading="lazy" />
           <span class="product-category-tag">Gastro</span>
         </div>
         <div class="product-body">
@@ -533,7 +546,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/Esomeprazole Tablet.png" alt="Esomust-40" loading="lazy" />
+          <img src="assets/images/Esomeprazole Tablet.webp" alt="Esomust-40" loading="lazy" />
           <span class="product-category-tag">Gastro</span>
         </div>
         <div class="product-body">
@@ -544,7 +557,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/Sucralfate Suspension Bottl.png" alt="Sucrawart-O" loading="lazy" />
+          <img src="assets/images/Sucralfate Suspension Bottl.webp" alt="Sucrawart-O" loading="lazy" />
           <span class="product-category-tag">Gastro</span>
         </div>
         <div class="product-body">
@@ -555,7 +568,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/Zetalax.png" alt="Zetalax" loading="lazy" />
+          <img src="assets/images/Zetalax.webp" alt="Zetalax" loading="lazy" />
           <span class="product-category-tag">Gastro</span>
         </div>
         <div class="product-body">
@@ -570,7 +583,7 @@
     <div class="product-panel" id="tab-anti">
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/endrodid-600.png" alt="Endrodid-600" loading="lazy" />
+          <img src="assets/images/endrodid-600.webp" alt="Endrodid-600" loading="lazy" />
           <span class="product-category-tag">Anti-Infective</span>
         </div>
         <div class="product-body">
@@ -581,7 +594,7 @@
       </div>
       <div class="product-card">
         <div class="product-img">
-          <img src="assets/images/zebnor-mt.png" alt="Zebnor-MT" loading="lazy" />
+          <img src="assets/images/zebnor-mt.webp" alt="Zebnor-MT" loading="lazy" />
           <span class="product-category-tag">Respiratory</span>
         </div>
         <div class="product-body">
@@ -847,7 +860,7 @@
       <div class="reveal-right">
 
         <div class="quality-img">
-          <img src="assets/images/quality.png" alt="Welwart Quality Lab" loading="lazy">
+          <img src="assets/images/quality.webp" alt="Welwart Quality Lab" loading="lazy">
         </div>
 
         <div class="quality-stats" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;">
@@ -909,112 +922,112 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/quality.png" alt="Quality Testing Laboratory" loading="lazy" />
+        <img src="assets/images/quality.webp" alt="Quality Testing Laboratory" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Quality Testing Facility</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/Cartibless.png" alt="Cartibless Joint Health Formula" loading="lazy" />
+        <img src="assets/images/Cartibless.webp" alt="Cartibless Joint Health Formula" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Cartibless Joint Care</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/D3 Ultrarise.png" alt="Ultrarise-60K Vitamin D3 Softgels" loading="lazy" />
+        <img src="assets/images/D3 Ultrarise.webp" alt="Ultrarise-60K Vitamin D3 Softgels" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Ultrarise-60K D3</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/WELFINAC-SP.png" alt="Welfinac-SP Anti-Inflammatory Tablets" loading="lazy" />
+        <img src="assets/images/WELFINAC-SP.webp" alt="Welfinac-SP Anti-Inflammatory Tablets" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Welfinac-SP Range</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/Esomust-DSR.png" alt="Esomust-DSR Gastro Range" loading="lazy" />
+        <img src="assets/images/Esomust-DSR.webp" alt="Esomust-DSR Gastro Range" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Esomust-DSR Capsules</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/about.png" alt="Research &amp; Formulation Laboratory" loading="lazy" />
+        <img src="assets/images/about.webp" alt="Research &amp; Formulation Laboratory" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">R&amp;D Formulation Lab</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/argiveer-lc.png" alt="Argiveer-LC Vitality Formula" loading="lazy" />
+        <img src="assets/images/argiveer-lc.webp" alt="Argiveer-LC Vitality Formula" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Argiveer-LC Vitality</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/ultrarise-nano.png" alt="Ultrarise Nano Oral Shot" loading="lazy" />
+        <img src="assets/images/ultrarise-nano.webp" alt="Ultrarise Nano Oral Shot" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Ultrarise Nano Shot</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/calwart-xt.png" alt="Calwart-XT Calcium &amp; Minerals" loading="lazy" />
+        <img src="assets/images/calwart-xt.webp" alt="Calwart-XT Calcium &amp; Minerals" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Calwart-XT Complex</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/Sucralfate Suspension Bottl.png" alt="Sucrawart-O Mucosal Suspension" loading="lazy" />
+        <img src="assets/images/Sucralfate Suspension Bottl.webp" alt="Sucrawart-O Mucosal Suspension" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Sucrawart-O Suspension</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/welfinac-th.png" alt="Welfinac-TH Spasm &amp; Pain Therapy" loading="lazy" />
+        <img src="assets/images/welfinac-th.webp" alt="Welfinac-TH Spasm &amp; Pain Therapy" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Welfinac-TH Spasm Relief</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/zebnor-mt.png" alt="Zebnor-MT Anti-Allergic Range" loading="lazy" />
+        <img src="assets/images/zebnor-mt.webp" alt="Zebnor-MT Anti-Allergic Range" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Zebnor-MT Respiratory</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/osgum-forte.png" alt="Osgum Forte Bone Health" loading="lazy" />
+        <img src="assets/images/osgum-forte.webp" alt="Osgum Forte Bone Health" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Osgum Forte Health</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/Zetalax.png" alt="Zetalax Gentle Laxative Solution" loading="lazy" />
+        <img src="assets/images/Zetalax.webp" alt="Zetalax Gentle Laxative Solution" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Zetalax Solution</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/endrodid-600.png" alt="Endrodid-600 Antibiotic Linezolid" loading="lazy" />
+        <img src="assets/images/endrodid-600.webp" alt="Endrodid-600 Antibiotic Linezolid" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">Endrodid-600 Range</span>
         </div>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="assets/images/t-grow.png" alt="T-Grow Bone &amp; Tissue Formula" loading="lazy" />
+        <img src="assets/images/t-grow.webp" alt="T-Grow Bone &amp; Tissue Formula" loading="lazy" />
         <div class="gallery-overlay">
           <i class="fas fa-expand"></i>
           <span class="gallery-caption">T-Grow Nutrition</span>
@@ -1289,7 +1302,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="assets/images/logo.png" alt="Welwart Logo" />
+          <img src="assets/images/logo.webp" alt="Welwart Logo" />
           <div class="footer-logo-text">
             <div class="brand">WELWART</div>
             <div class="tagline">Pharmaceuticals Pvt. Ltd.</div>
